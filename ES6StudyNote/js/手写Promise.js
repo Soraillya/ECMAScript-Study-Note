@@ -152,7 +152,7 @@ class MyPromise {
 console.log("第一步，创建MyPromise对象的实例mp");
 const mp = new MyPromise((resolve, reject) => {
     console.log("mp函数内部");
-    let status = confirm("Promise是否成功？");
+    let status = true;
     if (status) {
         console.log("resolve前");
         resolve("Comfirm Success!!!");
@@ -196,3 +196,29 @@ console.log("结束");
 // .finally(() => {
 //     console.log("Finally");
 // });
+let arr = [
+    { name: "function", age: 121 },
+    { name: "function2", age: 12 },
+    { name: "promise2", age: 112 },
+    { name: "x", age: 120 },
+    { name: "resolve", age: 2 },
+    { name: "reject", age: 1 },
+];
+
+let [...arr1] = arr;
+let [...arr2] = arr;
+console.log(["function", "resolvePromise", "promise2", "x", "resolve", "reject"].sort());
+console.log(arr1);
+
+console.log(
+    "按name升序排列",
+    arr1.sort((x, y) => {
+        return x.name > y.name ? 1 : x.name === y.name ? 0 : -1;
+    })
+);
+console.log(
+    "按age升序排列",
+    arr2.sort((x, y) => {
+        return x.age - y.age; // x比y小，则x排前面，y排后面
+    })
+);
